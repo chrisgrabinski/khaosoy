@@ -9,7 +9,7 @@ export function CurrentlyPlayingHoverCard({ children, artists, title, image }) {
     <HoverCard.Root>
       <HoverCard.Trigger asChild>{children}</HoverCard.Trigger>
       <HoverCard.Portal>
-        <HoverCard.Content align="start" side="top" sideOffset={3} asChild>
+        <HoverCard.Content align="start" side="top" sideOffset={3}>
           <FrostedGlass className="flex min-w-0 max-w-xs cursor-default items-center overflow-hidden rounded-xl shadow-lg">
             <Image
               src={image}
@@ -25,6 +25,7 @@ export function CurrentlyPlayingHoverCard({ children, artists, title, image }) {
               </span>
             </div>
           </FrostedGlass>
+          <HoverCard.Arrow className="h-2 w-3 fill-white" />
         </HoverCard.Content>
       </HoverCard.Portal>
     </HoverCard.Root>
