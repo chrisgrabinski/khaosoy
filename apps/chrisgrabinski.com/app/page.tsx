@@ -60,10 +60,10 @@ export default async function RootPage() {
     test?.item?.artists.map((artist) => artist.name).join(", ");
 
   return (
-    <div className="flex min-h-[100dvh] flex-col">
+    <>
       <UkraineBanner />
-      <div className="isolate grid flex-grow grid-cols-[24px_repeat(6,1fr)_24px] grid-rows-[24px_auto_repeat(2,24px)_auto] items-center md:grid-cols-[auto_repeat(6,minmax(0px,144px))_auto] md:grid-rows-none md:gap-6">
-        <div className="relative z-10 col-start-2 col-end-6 row-start-2 row-end-3 aspect-square md:col-start-5 md:col-end-8 md:row-start-1 md:row-end-auto md:py-6">
+      <div className="isolate grid flex-grow grid-cols-[24px_repeat(6,1fr)_24px] grid-rows-[48px_auto_repeat(2,24px)_auto] items-center md:grid-cols-[auto_repeat(6,minmax(0px,144px))_auto] md:grid-rows-none md:gap-6">
+        <div className="relative z-10 col-start-2 col-end-6 row-start-2 row-end-3 pt-6 md:col-start-5 md:col-end-8 md:row-start-1 md:row-end-auto md:py-6">
           <Image src={portraitImage} alt="" />
         </div>
         <div className="z-10 col-start-2 col-end-8 row-start-4 row-end-6 pb-6 md:col-start-2 md:col-end-5 md:row-start-1 md:row-end-auto md:py-6">
@@ -126,7 +126,7 @@ export default async function RootPage() {
             ))}
           </ul>
         </div>
-        <div className="relative col-start-4 col-end-9 row-start-1 row-end-5 h-full w-full overflow-clip md:col-start-6 md:col-end-9 md:row-start-1 md:row-end-auto">
+        <div className="relative col-start-4 col-end-9 row-start-1 row-end-5 h-full w-full overflow-clip md:col-start-6 md:col-end-9 md:row-start-1 md:row-end-auto md:min-h-[100dvh]">
           <Image
             src={patternImage}
             alt=""
@@ -155,6 +155,6 @@ export default async function RootPage() {
           </svg>
         </div>
       </div>
-    </div>
+    </>
   );
 }
