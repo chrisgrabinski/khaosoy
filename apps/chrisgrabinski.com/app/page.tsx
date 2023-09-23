@@ -72,7 +72,7 @@ export default function RootPage() {
         </ul>
         <ul className="flex gap-1.5 mt-12">
           {profiles.map(({ name, icon: Icon, href }) => (
-            <li>
+            <li key={name}>
               <a
                 className="grid focus-visible:outline-foreground-muted outline-transparent outline-offset-[3px] outline-0 transition-all duration-150 focus-visible:outline-2 place-items-center w-8 h-8 bg-foreground text-background rounded-full"
                 href={href}
