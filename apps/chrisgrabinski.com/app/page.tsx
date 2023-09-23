@@ -27,17 +27,17 @@ const profiles = [
   },
   {
     name: "Instagram",
-    href: "https://instagram.com/chrisgrabinski",
+    href: "https://www.instagram.com/chrisgrabinski/",
     icon: SiInstagram,
   },
   {
     name: "Threads",
-    href: "https://threads.net/@chrisgrabinski",
+    href: "https://www.threads.net/@chrisgrabinski",
     icon: SiThreads,
   },
   {
     name: "X",
-    href: "https://x.com/chrisgrabinski",
+    href: "https://twitter.com/chrisgrabinski",
     icon: SiX,
   },
 ];
