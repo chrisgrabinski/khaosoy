@@ -91,23 +91,23 @@ export default function RootPage() {
           alt=""
           fill
           className="object-cover scale-105"
-          style={{ filter: "url(#turbulence)" }}
+          style={{ filter: "url(#flow)" }}
         />
         <svg className="absolute">
-          <filter id="turbulence" x="0" y="0" width="100%" height="100%">
+          <filter id="flow" x="0" y="0" width="100%" height="100%">
             <feTurbulence
-              id="fluid"
+              id="turbulence"
               numOctaves="3"
               seed="2"
-              baseFrequency="0.02 0.06"
+              baseFrequency="0.05 0.1"
             />
-            <feDisplacementMap scale="10" in="SourceGraphic" />
+            <feDisplacementMap scale="20" in="SourceGraphic" />
             <animate
-              xlinkHref="#fluid"
+              xlinkHref="#turbulence"
               attributeName="baseFrequency"
               dur="60s"
               keyTimes="0;0.5;1"
-              values="0.02 0.06;0.04 0.08;0.02 0.06"
+              values="0.05 0.1;0.1 0.05;0.05 0.1"
               repeatCount="indefinite"
             />
           </filter>
