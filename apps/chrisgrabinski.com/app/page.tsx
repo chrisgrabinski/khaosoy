@@ -134,8 +134,35 @@ export default async function RootPage() {
             className="scale-105 object-cover"
             style={{ filter: "url(#flow)" }}
           />
-          <svg className="absolute">
-            <filter id="flow" x="0" y="0" width="100%" height="100%">
+          <svg className="pointer-events-none absolute">
+            <filter id="noise">
+              <feTurbulence baseFrequency="0.05" />
+              <feColorMatrix type="hueRotate" values="0">
+                <animate
+                  attributeName="values"
+                  from="0"
+                  to="360"
+                  dur="5s"
+                  repeatCount="indefinite"
+                />
+              </feColorMatrix>
+              <feColorMatrix
+                type="matrix"
+                values="0 0 0 0 0
+               0 0 0 0 0
+               0 0 0 0 0
+               1 0 0 0 0"
+              />
+              <feDisplacementMap in="SourceGraphic" scale="10" />
+            </filter>
+            <filter
+              id="flow"
+              x="0"
+              y="0"
+              width="100%"
+              height="100%"
+              colorInterpolationFilters="sRGB"
+            >
               <feTurbulence
                 id="turbulence"
                 numOctaves="3"
