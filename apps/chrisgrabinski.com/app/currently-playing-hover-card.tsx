@@ -21,8 +21,8 @@ export function CurrentlyPlayingHoverCard({ children, artists, title, image }) {
             width={56}
             height={56}
           />
-          <div className="px-3 py-1.5 min-w-[160px]">
-            <span className="block text-sm line-clamp-1">{title}</span>
+          <div className="px-3 py-1.5 min-w-0">
+            <span className="block text-sm truncate">{title}</span>
             <span className="block text-xs text-foreground-muted line-clamp-1">
               {artists}
             </span>
