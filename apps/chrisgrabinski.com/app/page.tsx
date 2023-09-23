@@ -7,12 +7,15 @@ import {
   SiGithub,
   SiInstagram,
   SiLinkedin,
+  SiSpotify,
   SiThreads,
   SiX,
 } from "@icons-pack/react-simple-icons";
 import { TypeformLogo } from "@/app/typeform-logo";
 import { UnbabelLogo } from "@/app/unbabel-logo";
 import { RemoteLogo } from "@/app/remote-logo";
+import { getCurrentlyPlaying } from "@/lib/spotify";
+import { CurrentlyPlayingHoverCard } from "@/app/currently-playing-hover-card";
 
 const profiles = [
   {
@@ -42,9 +45,23 @@ const profiles = [
   },
 ];
 
-export default function RootPage() {
+export default async function RootPage() {
+  const test = await getCurrentlyPlaying().then((res) => res.json());
+
+  console.log(test);
+
+  const showSpotifyLink =
+    test?.is_playing && test?.currently_playing_type === "track";
+
+  const name = showSpotifyLink && test?.item?.name;
+  const href = showSpotifyLink && test?.item?.external_urls.spotify;
+  const images = showSpotifyLink && test?.item?.album?.images;
+  const artists =
+    showSpotifyLink &&
+    test?.item?.artists.map((artist) => artist.name).join(", ");
+
   return (
-    <div className="grid grid-cols-[24px_repeat(6,1fr)_24px] md:grid-cols-[auto_repeat(6,minmax(0px,144px))_auto] grid-rows-[24px_auto_repeat(2,24px)_auto] md:grid-rows-none items-center md:gap-6">
+    <div className="isolate grid grid-cols-[24px_repeat(6,1fr)_24px] md:grid-cols-[auto_repeat(6,minmax(0px,144px))_auto] grid-rows-[24px_auto_repeat(2,24px)_auto] md:grid-rows-none items-center md:gap-6">
       <div className="md:py-6 relative row-start-2 row-end-3 col-start-2 col-end-6 aspect-square z-10 md:row-end-auto md:col-start-5 md:col-end-8 md:row-start-1">
         <Image src={portraitImage} alt="" />
       </div>
@@ -71,15 +88,38 @@ export default function RootPage() {
           </li>
         </ul>
         <ul className="flex gap-1.5 mt-12">
+          {showSpotifyLink && (
+            <li>
+              <CurrentlyPlayingHoverCard
+                title={name}
+                artists={artists}
+                image={images[0].url}
+              >
+                <a
+                  className="relative grid focus-visible:outline-foreground-muted outline-transparent outline-offset-[3px] outline-0 transition-all duration-150 focus-visible:outline-2 place-items-center w-8 h-8 bg-foreground text-background rounded-full"
+                  href={href}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  aria-label="Spotify"
+                >
+                  <SiSpotify title="" className="relative z-10 w-4 h-4" />
+                  <div className="animate-pulse w-full h-full rounded-full absolute inset-0 pointer-events-none bg-green-500" />
+                </a>
+              </CurrentlyPlayingHoverCard>
+            </li>
+          )}
           {profiles.map(({ name, icon: Icon, href }) => (
-            <li key={name}>
+            <li
+              key={name}
+              className="grid focus-visible:outline-foreground-muted outline-transparent outline-offset-[3px] outline-0 transition-all duration-150 focus-visible:outline-2 place-items-center w-8 h-8 bg-foreground text-background rounded-full"
+            >
               <a
-                className="grid focus-visible:outline-foreground-muted outline-transparent outline-offset-[3px] outline-0 transition-all duration-150 focus-visible:outline-2 place-items-center w-8 h-8 bg-foreground text-background rounded-full"
                 href={href}
                 rel="noopener noreferrer"
                 target="_blank"
+                aria-label={name}
               >
-                <Icon title={name} className="w-4 h-4" />
+                <Icon className="w-4 h-4" title="" />
               </a>
             </li>
           ))}
