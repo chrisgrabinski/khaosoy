@@ -1,7 +1,7 @@
 export function UkraineBanner() {
   return (
     <div className="absolute z-10 w-full">
-      <div className="absolute inset-0 bg-white/30 saturate-200 backdrop-blur-xl" />
+      <div className="absolute inset-0 bg-white/20 bg-gradient-to-t from-white/70 saturate-200 backdrop-blur-md" />
       <div className="relative flex h-12 items-center justify-center gap-3 px-3 text-sm">
         🇺🇦 Support Ukraine
         <a
