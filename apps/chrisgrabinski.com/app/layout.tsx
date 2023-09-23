@@ -1,12 +1,20 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 
-const inter = Inter({ subsets: ["latin"] });
+const maison = localFont({
+  src: "./fonts/maison-regular.woff2",
+  display: "swap",
+  variable: "--font-maison",
+});
 
 export const metadata: Metadata = {
-  title: "Chris Grabiński",
-  description: "UI/UX Engineering",
+  title: "Chris Grabiński ・ Frontend Engineer",
+  description:
+    "Working with product teams to deliver beautiful, user‑friendly, and goal‑driven web experiences.",
+  verification: {
+    me: "https://mastodon.social/@chrisgrabinski",
+  },
 };
 
 export default function RootLayout({
@@ -15,8 +23,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={maison.variable}>
+      <body className="font-sans bg-background text-foreground">
+        {children}
+      </body>
     </html>
   );
 }

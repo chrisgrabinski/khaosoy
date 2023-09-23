@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --color-background: rgb(239, 240, 251);
+  --color-foreground: rgb(61, 64, 92);
+  --color-foreground-muted: rgb(81, 87, 150);
+}
+
+@layer utilities {
+  .whitespace-balance {
+    white-space: balance;
+  }
+}

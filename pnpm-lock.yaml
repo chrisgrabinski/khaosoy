@@ -23,6 +23,9 @@ importers:
 
   apps/chrisgrabinski.com:
     dependencies:
+      '@icons-pack/react-simple-icons':
+        specifier: ^9.0.0
+        version: 9.0.0(react@18.2.0)
       '@types/node':
         specifier: 20.6.3
         version: 20.6.3
@@ -352,6 +355,14 @@ packages:
 
   /@humanwhocodes/object-schema@1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
+
+  /@icons-pack/react-simple-icons@9.0.0(react@18.2.0):
+    resolution: {integrity: sha512-2ZLcJKCmz0VESaKbuiJ8ks4Qd8fldTdK63JkO3bLgD0GVXQi994jy7/1Kd+mIrMmrSMGPe23+DGGx5g9aAsc2w==}
+    peerDependencies:
+      react: ^16.13 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /@jridgewell/gen-mapping@0.3.3:
     resolution: {integrity: sha512-HLhSWOLRi875zjjMG/r+Nv0oCW8umGb0BgEhyX3dDX3egwZtB8PqLnjz3yedt8R5StBrzcg4aBpnh8UA9D1BoQ==}
