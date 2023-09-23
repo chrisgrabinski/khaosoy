@@ -63,26 +63,26 @@ export default async function RootPage() {
     test?.item?.artists.map((artist) => artist.name).join(", ");
 
   return (
-    <div className="min-h-[100dvh] flex flex-col">
+    <div className="flex min-h-[100dvh] flex-col">
       <UkraineBanner />
-      <div className="isolate flex-grow grid grid-cols-[24px_repeat(6,1fr)_24px] md:grid-cols-[auto_repeat(6,minmax(0px,144px))_auto] grid-rows-[24px_auto_repeat(2,24px)_auto] md:grid-rows-none items-center md:gap-6">
-        <div className="md:py-6 relative row-start-2 row-end-3 col-start-2 col-end-6 aspect-square z-10 md:row-end-auto md:col-start-5 md:col-end-8 md:row-start-1">
+      <div className="isolate grid flex-grow grid-cols-[24px_repeat(6,1fr)_24px] grid-rows-[24px_auto_repeat(2,24px)_auto] items-center md:grid-cols-[auto_repeat(6,minmax(0px,144px))_auto] md:grid-rows-none md:gap-6">
+        <div className="relative z-10 col-start-2 col-end-6 row-start-2 row-end-3 aspect-square md:col-start-5 md:col-end-8 md:row-start-1 md:row-end-auto md:py-6">
           <Image src={portraitImage} alt="" />
         </div>
-        <div className="md:py-6 col-start-2 col-end-8 row-start-4 row-end-6 z-10 md:row-end-auto md:col-start-2 md:col-end-5 md:row-start-1 pb-6">
+        <div className="z-10 col-start-2 col-end-8 row-start-4 row-end-6 pb-6 md:col-start-2 md:col-end-5 md:row-start-1 md:row-end-auto md:py-6">
           <h1 className="text-5xl sm:text-6xl">
             Chris
             <br /> Grabiński
           </h1>
-          <p className="text-2xl mt-3 text-foreground-muted">
+          <p className="mt-3 text-2xl text-foreground-muted">
             Frontend Engineer
           </p>
-          <p className="text-lg mt-3 whitespace-balance">
+          <p className="whitespace-balance mt-3 text-lg">
             Working with product teams to deliver beautiful, user‑friendly, and
             goal‑driven web experiences.
           </p>
-          <p className="text-xs mt-6 text-foreground-muted">Worked with</p>
-          <ul className="mt-3 flex gap-6 items-center">
+          <p className="mt-6 text-xs text-foreground-muted">Worked with</p>
+          <ul className="mt-3 flex items-center gap-6">
             <li>
               <RemoteLogo className="h-5" />
             </li>
@@ -93,7 +93,7 @@ export default async function RootPage() {
               <UnbabelLogo className="h-6" />
             </li>
           </ul>
-          <ul className="flex gap-1.5 mt-12">
+          <ul className="mt-12 flex gap-1.5">
             {showSpotifyLink && (
               <li>
                 <CurrentlyPlayingHoverCard
@@ -102,14 +102,14 @@ export default async function RootPage() {
                   image={images[0].url}
                 >
                   <a
-                    className="relative grid focus-visible:outline-foreground-muted outline-transparent outline-offset-[3px] outline-0 transition-all duration-150 focus-visible:outline-2 place-items-center w-8 h-8 bg-foreground text-background rounded-full"
+                    className="relative grid h-8 w-8 place-items-center rounded-full bg-foreground text-background outline-0 outline-offset-[3px] outline-transparent transition-all duration-150 focus-visible:outline-2 focus-visible:outline-foreground-muted"
                     href={href}
                     rel="noopener noreferrer"
                     target="_blank"
                     aria-label="Spotify"
                   >
-                    <SiSpotify title="" className="relative z-10 w-4 h-4" />
-                    <div className="animate-pulse w-full h-full rounded-full absolute inset-0 pointer-events-none bg-green-500" />
+                    <SiSpotify title="" className="relative z-10 h-4 w-4" />
+                    <div className="pointer-events-none absolute inset-0 h-full w-full animate-pulse rounded-full bg-green-500" />
                   </a>
                 </CurrentlyPlayingHoverCard>
               </li>
@@ -117,7 +117,7 @@ export default async function RootPage() {
             {profiles.map(({ name, icon: Icon, href }) => (
               <li
                 key={name}
-                className="grid focus-visible:outline-foreground-muted outline-transparent outline-offset-[3px] outline-0 transition-all duration-150 focus-visible:outline-2 place-items-center w-8 h-8 bg-foreground text-background rounded-full"
+                className="grid h-8 w-8 place-items-center rounded-full bg-foreground text-background outline-0 outline-offset-[3px] outline-transparent transition-all duration-150 focus-visible:outline-2 focus-visible:outline-foreground-muted"
               >
                 <a
                   href={href}
@@ -125,18 +125,18 @@ export default async function RootPage() {
                   target="_blank"
                   aria-label={name}
                 >
-                  <Icon className="w-4 h-4" title="" />
+                  <Icon className="h-4 w-4" title="" />
                 </a>
               </li>
             ))}
           </ul>
         </div>
-        <div className="relative overflow-clip row-start-1 row-end-5 col-start-4 col-end-9 md:row-start-1 md:col-start-6 md:col-end-9 md:row-end-auto w-full h-full">
+        <div className="relative col-start-4 col-end-9 row-start-1 row-end-5 h-full w-full overflow-clip md:col-start-6 md:col-end-9 md:row-start-1 md:row-end-auto">
           <Image
             src={patternImage}
             alt=""
             fill
-            className="object-cover scale-105"
+            className="scale-105 object-cover"
             style={{ filter: "url(#flow)" }}
           />
           <svg className="absolute">

@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={maison.variable}>
-      <body className="font-sans bg-background text-foreground">
+      <body className="bg-background font-sans text-foreground">
         {children}
       </body>
     </html>

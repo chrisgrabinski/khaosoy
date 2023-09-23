@@ -12,7 +12,7 @@ export function CurrentlyPlayingHoverCard({ children, artists, title, image }) {
           align="start"
           side="top"
           sideOffset={3}
-          className="cursor-default backdrop-blur-md min-w-0 overflow-hidden items-center flex rounded-xl max-w-xs shadow-lg"
+          className="flex min-w-0 max-w-xs cursor-default items-center overflow-hidden rounded-xl shadow-lg backdrop-blur-md"
         >
           <Image
             src={image}
@@ -21,9 +21,9 @@ export function CurrentlyPlayingHoverCard({ children, artists, title, image }) {
             width={56}
             height={56}
           />
-          <div className="px-3 py-1.5 min-w-0">
-            <span className="block text-sm truncate">{title}</span>
-            <span className="block text-xs text-foreground-muted line-clamp-1">
+          <div className="min-w-0 px-3 py-1.5">
+            <span className="block truncate text-sm">{title}</span>
+            <span className="line-clamp-1 block text-xs text-foreground-muted">
               {artists}
             </span>
           </div>
