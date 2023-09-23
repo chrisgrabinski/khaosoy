@@ -115,11 +115,9 @@ export default async function RootPage() {
               </li>
             )}
             {profiles.map(({ name, icon: Icon, href }) => (
-              <li
-                key={name}
-                className="grid h-8 w-8 place-items-center rounded-full bg-foreground text-background outline-0 outline-offset-[3px] outline-transparent transition-all duration-150 focus-visible:outline-2 focus-visible:outline-foreground-muted"
-              >
+              <li key={name}>
                 <a
+                  className="grid h-8 w-8 place-items-center rounded-full bg-foreground text-background outline-0 outline-offset-[3px] outline-transparent transition-all duration-150 focus-visible:outline-2 focus-visible:outline-foreground-muted"
                   href={href}
                   rel="noopener noreferrer"
                   target="_blank"
