@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { headers } from "next/headers";
 
 import patternImage from "./images/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg";
 import portraitImage from "./images/chris-grabinski.jpg";
@@ -48,8 +47,6 @@ const profiles = [
 ];
 
 export default async function RootPage() {
-  const headersList = headers();
-
   const test = await getCurrentlyPlaying().then((res) => res.json());
 
   const showSpotifyLink =
