@@ -48,8 +48,6 @@ const profiles = [
 export default async function RootPage() {
   const test = await getCurrentlyPlaying().then((res) => res.json());
 
-  console.log(test);
-
   const showSpotifyLink =
     test?.is_playing && test?.currently_playing_type === "track";
 
