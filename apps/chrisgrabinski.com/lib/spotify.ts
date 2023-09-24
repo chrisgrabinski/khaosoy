@@ -18,9 +18,7 @@ const getAccessToken = async () => {
       grant_type: "refresh_token",
       refresh_token,
     }),
-    next: {
-      revalidate: 1800,
-    },
+    cache: "no-cache",
   });
 
   return response.json();
@@ -31,10 +29,16 @@ const CURRENTLY_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/current
 export const getCurrentlyPlaying = async () => {
   const { access_token } = await getAccessToken();
 
-  return fetch(CURRENTLY_PLAYING_ENDPOINT, {
+  const response = await fetch(CURRENTLY_PLAYING_ENDPOINT, {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
     cache: "no-cache",
   });
+
+  if (response.body === null) {
+    return null;
+  }
+
+  return response.json();
 };

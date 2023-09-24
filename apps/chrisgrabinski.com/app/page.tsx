@@ -47,17 +47,17 @@ const profiles = [
 ];
 
 export default async function RootPage() {
-  const test = await getCurrentlyPlaying().then((res) => res.json());
+  const spotifyData = await getCurrentlyPlaying();
 
   const showSpotifyLink =
-    test?.is_playing && test?.currently_playing_type === "track";
+    spotifyData?.is_playing && spotifyData?.currently_playing_type === "track";
 
-  const name = showSpotifyLink && test?.item?.name;
-  const href = showSpotifyLink && test?.item?.external_urls.spotify;
-  const images = showSpotifyLink && test?.item?.album?.images;
+  const name = showSpotifyLink && spotifyData?.item?.name;
+  const href = showSpotifyLink && spotifyData?.item?.external_urls.spotify;
+  const images = showSpotifyLink && spotifyData?.item?.album?.images;
   const artists =
     showSpotifyLink &&
-    test?.item?.artists.map((artist) => artist.name).join(", ");
+    spotifyData?.item?.artists.map((artist) => artist.name).join(", ");
 
   return (
     <>
